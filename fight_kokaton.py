@@ -144,20 +144,21 @@ class Score:
     """
     打ち落とした爆弾の数を表示するスコアクラス
     """
-    def __init__(self, score: int):
+    def __init__(self, point: int):
         """
         スコアSurfaceを生成する
+        引数 point:スコアポイント
         """
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
-        self.score = 0
-        self.img = self.fonto.render(f"スコア：{self.score}", 0, (0, 0, 255))
+        self.point = 0
+        self.img = self.fonto.render(f"スコア：{self.point}", 0, (0, 0, 255))
         self.rct = self.img.get_rect()
         self.rct.center = 100, HEIGHT-50
     def update(self, screen:pg.Surface):
         """
         引数 screen：画面Surface
         """
-        self.img = self.fonto.render(f"スコア：{self.score}", 0, (0, 0, 255))
+        self.img = self.fonto.render(f"スコア：{self.point}", 0, (0, 0, 255))
         screen.blit(self.img, self.rct)
 
 
@@ -199,7 +200,7 @@ def main():
                     beam = None
                     bombs[i] = None
                     bird.change_img(6, screen)
-                    score.score += 1
+                    score.point += 1
                     pg.display.update()
 
         key_lst = pg.key.get_pressed()
