@@ -200,7 +200,7 @@ def main():
                     beam = None
                     bombs[i] = None
                     bird.change_img(6, screen)
-                    score.point += 1
+                    score.point += 1  # スコアアップ
                     pg.display.update()
 
         key_lst = pg.key.get_pressed()
